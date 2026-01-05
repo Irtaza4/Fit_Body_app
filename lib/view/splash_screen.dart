@@ -1,6 +1,8 @@
 import 'package:fitness_app/resources/images.dart';
+import 'package:fitness_app/utils/route_names.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -32,8 +34,17 @@ class _SplashScreenState extends State<SplashScreen>
       end: Offset.zero
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
     _controller.forward();
-  }
+    Future.delayed(const Duration(milliseconds: 1400), () {
+      if (!mounted) return;
+      context.go(RouteNames.getStartedScreen);
+    });
 
+  }
+@override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
