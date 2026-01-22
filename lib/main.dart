@@ -1,4 +1,5 @@
 import 'package:fitness_app/utils/route_names.dart';
+import 'package:fitness_app/view/carousalScreen.dart';
 import 'package:fitness_app/view/get_started_screen.dart';
 import 'package:fitness_app/view/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -35,5 +36,8 @@ final GoRouter _router = GoRouter(
     ),
       GoRoute(path: RouteNames.getStartedScreen,
       builder: (context,state)=>const GetStartedScreen()
-      )
+      ),
+      GoRoute(path: RouteNames.carousalScreen,
+          builder: (context,state)=>const Carousalscreen()
+      ),
     ]);
